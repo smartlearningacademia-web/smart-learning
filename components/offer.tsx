@@ -1,10 +1,44 @@
 "use client";
 
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FaCheckCircle, FaPaperPlane, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function OfertaPrincipalSection() {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formRef.current) return;
+
+    setSending(true);
+    setSuccess(false);
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        }
+      );
+
+      setSuccess(true);
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Error enviando el formulario");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section className="relative overflow-hidden" id="contacto">
       <div
@@ -28,6 +62,7 @@ export default function OfertaPrincipalSection() {
             className="relative"
           >
             <div className="rounded-3xl rounded-bl-none border border-white/15 bg-white/95 p-6 shadow-2xl backdrop-blur-md sm:p-8">
+              
               <div className="mb-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#c6d647]">
                   Solicita información
@@ -40,7 +75,8 @@ export default function OfertaPrincipalSection() {
                 </p>
               </div>
 
-              <form className="space-y-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -49,6 +85,7 @@ export default function OfertaPrincipalSection() {
                     <input
                       type="text"
                       name="name"
+                      required
                       placeholder="Tu nombre"
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                     />
@@ -61,6 +98,7 @@ export default function OfertaPrincipalSection() {
                     <input
                       type="email"
                       name="email"
+                      required
                       placeholder="tucorreo@email.com"
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                     />
@@ -75,6 +113,7 @@ export default function OfertaPrincipalSection() {
                     <input
                       type="tel"
                       name="phone"
+                      required
                       placeholder="+57 300 000 0000"
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                     />
@@ -86,6 +125,7 @@ export default function OfertaPrincipalSection() {
                     </label>
                     <select
                       name="level"
+                      required
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                     >
                       <option value="">Selecciona una opción</option>
@@ -104,6 +144,7 @@ export default function OfertaPrincipalSection() {
                   <input
                     type="text"
                     name="city"
+                    required
                     placeholder="Bogotá, Medellín, Cali..."
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                   />
@@ -116,6 +157,7 @@ export default function OfertaPrincipalSection() {
                   <textarea
                     name="message"
                     rows={4}
+                    required
                     placeholder="Cuéntanos para qué necesitas tu certificación."
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#c6d647] focus:ring-2 focus:ring-[#c6d647]/30"
                   />
@@ -123,15 +165,26 @@ export default function OfertaPrincipalSection() {
 
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center rounded-full rounded-bl-none bg-[#c6d647] px-6 py-4 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:brightness-105"
+                  disabled={sending}
+                  className="inline-flex w-full items-center justify-center rounded-full rounded-bl-none bg-[#c6d647] px-6 py-4 text-sm font-semibold text-slate-900 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:brightness-105 disabled:opacity-60"
                 >
-                  Solicitar certificación
+                  {sending ? "Enviando..." : "Solicitar certificación"}
                 </button>
+
+                {success && (
+                  <div className="mt-4 flex items-center gap-3 rounded-2xl border border-green-200 bg-green-50 px-4 py-3 shadow-sm">
+                    <FaCheckCircle className="h-5 w-5 text-green-600" />
+                    <p className="text-sm font-semibold text-green-700">
+                      Tu información fue enviada correctamente. Te contactaremos en breve.
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex items-center justify-center gap-2 pt-1 text-sm text-slate-500">
                   <FaEnvelope className="text-[#b7c772]" />
                   Respuesta rápida por correo o WhatsApp
                 </div>
+
               </form>
             </div>
           </motion.div>
