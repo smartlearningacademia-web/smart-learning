@@ -50,51 +50,51 @@ export default function NavbarTopBar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* TOP BAR */}
-<div className="border-b border-black/10 bg-[#b7c772] text-slate-900">
-  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+      <div className="border-b border-black/10 bg-[#b7c772] text-slate-900">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
 
-    {/* Redes (SOLO ICONOS) */}
-    <div className="flex items-center gap-3">
-      {socialLinks.map(({ icon: Icon, href, label }) => (
-        <Link
-          key={label}
-          href={href}
-          aria-label={label}
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-white/40 transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-md"
-        >
-          <Icon className="h-4 w-4" />
-        </Link>
-      ))}
-    </div>
+          {/* Redes (SOLO ICONOS) */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/40 transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-md"
+              >
+                <Icon className="h-4 w-4" />
+              </Link>
+            ))}
+          </div>
 
-    {/* Contacto */}
-    <div className="flex items-center gap-4 text-xs sm:text-sm flex-wrap justify-end">
+          {/* Contacto */}
+          <div className="flex items-center gap-4 text-xs sm:text-sm flex-wrap justify-end">
 
-      {/* Ubicación (solo desktop) */}
-      <span className="hidden items-center gap-2 opacity-80 md:flex">
-        <FaMapMarkerAlt /> Bucaramanga, Colombia
-      </span>
+            {/* Ubicación (solo desktop) */}
+            <span className="hidden items-center gap-2 opacity-80 md:flex">
+              <FaMapMarkerAlt /> Bucaramanga, Colombia
+            </span>
 
-      {/* Email */}
-      <a
-        href="mailto:smartlearningacademia@gmail.com"
-        className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
-      >
-        <FaEnvelope className="shrink-0" />
-        <span>smartlearningacademia@gmail.com</span>
-      </a>
+            {/* Email */}
+            <a
+              href="mailto:smartlearningacademia@gmail.com"
+              className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
+            >
+              <FaEnvelope className="shrink-0" />
+              <span>smartlearningacademia@gmail.com</span>
+            </a>
 
-      {/* Teléfono */}
-      <a
-        href="tel:+573212426083"
-        className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
-      >
-        <FaPhoneAlt className="shrink-0" />
-        <span>+57 321 242 6083</span>
-      </a>
-    </div>
-  </div>
-</div>
+            {/* Teléfono */}
+            <a
+              href="tel:+573212426083"
+              className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
+            >
+              <FaPhoneAlt className="shrink-0" />
+              <span>+57 321 242 6083</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* NAV */}
       <nav className="relative border-b border-black/10 bg-white">
