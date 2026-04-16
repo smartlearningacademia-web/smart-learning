@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smartlearningcolombia.com"),
+  metadataBase: new URL("https://smartlearningonline.com"),
 
-  title:
-    "Certificación de inglés rápida y válida en Colombia y en el exterior (A2, B1, B2, C1)",
+  title: "Certificación de inglés rápida en Colombia | B1, B2, C1",
+
   description:
-    "Obtén tu certificación de inglés en Colombia y en el exterior de forma rápida y 100% online. Cumple tu requisito de grado o mejora tu perfil profesional sin procesos complicados.",
+    "Obtén tu certificación de inglés rápida y 100% online en Colombia. Ideal para grado, trabajo o crecimiento profesional.",
 
   keywords: [
     "certificación de inglés Colombia",
@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     "certificación B2 Colombia",
     "certificación inglés requisito de grado",
     "certificación inglés online Colombia",
-    "curso de inglés con certificación",
   ],
 
   authors: [{ name: "Smart Learning" }],
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "/",
+    canonical: "https://smartlearningonline.com",
   },
 
   icons: {
@@ -48,17 +47,16 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title:
-      "Certificación de inglés rápida | Smart Learning",
+    title: "Certificación de inglés rápida | Smart Learning",
     description:
-      "Obtén tu certificado de inglés rápido en Colombia. Ideal para requisito de grado, trabajo o crecimiento profesional.",
-    url: "https://smartlearningcolombia.com",
+      "Certifícate en inglés rápido en Colombia. 100% online y válido para universidades.",
+    url: "https://www.smartlearningonline.com",
     siteName: "Smart Learning",
     locale: "es_CO",
     type: "website",
     images: [
       {
-        url: "https://smartlearningcolombia.com/Logo_img.png",
+        url: "https://www.smartlearningonline.com/Logo_img.png",
         width: 1200,
         height: 630,
         alt: "Certificación de inglés en Colombia",
@@ -68,11 +66,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Certificación de inglés rápida y válida en Colombia (A2, B1, B2, C1)",
+    title: "Certificación de inglés rápida en Colombia",
     description:
-      "Certifícate en inglés rápido y sin complicaciones. 100% online en Colombia.",
-    images: ["https://smartlearningcolombia.com/Logo_img.png"],
+      "Obtén tu certificado de inglés rápido y válido. 100% online.",
+    images: ["https://www.smartlearningonline.com//Logo_img.png"],
   },
 };
 
@@ -99,7 +96,7 @@ export default function RootLayout({
                 url: "https://smartlearningcolombia.com",
                 logo: "https://smartlearningcolombia.com/Logo_img.png",
                 description:
-                  "Certificación de inglés rápida y válida en Colombia (A2, B1, B2, C1) con acompañamiento personalizado.",
+                  "Certificación de inglés rápida y válida en Colombia con acompañamiento.",
                 areaServed: "CO",
                 sameAs: [
                   "https://www.instagram.com/smartlearningacademia",
@@ -110,7 +107,7 @@ export default function RootLayout({
                 "@type": "Service",
                 name: "Certificación de inglés en Colombia",
                 description:
-                  "Servicio de certificación de inglés rápida y válida para requisito de grado en Colombia.",
+                  "Certificación de inglés rápida para requisito de grado y crecimiento profesional.",
                 provider: {
                   "@type": "Organization",
                   name: "Smart Learning",
@@ -126,34 +123,26 @@ export default function RootLayout({
                 mainEntity: [
                   {
                     "@type": "Question",
-                    name: "¿La certificación de inglés es válida para universidades?",
+                    name: "¿La certificación es válida para universidades?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Sí, la certificación es válida para cumplir requisitos académicos en universidades en Colombia.",
+                      text: "Sí, cumple requisitos académicos en Colombia.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "¿Cuánto tiempo tarda el proceso?",
+                    name: "¿Cuánto tarda el proceso?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "El proceso es rápido y depende de tu nivel actual y disponibilidad.",
+                      text: "Es rápido y depende de tu nivel actual.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "¿Es completamente online?",
+                    name: "¿Es online?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Sí, todo el proceso se realiza 100% online con acompañamiento.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "¿Qué nivel de inglés necesito?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text: "Se evalúa tu nivel inicial y se adapta el proceso desde A2 hasta C1 según tu necesidad.",
+                      text: "Sí, 100% online con acompañamiento.",
                     },
                   },
                 ],
