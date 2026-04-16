@@ -50,63 +50,51 @@ export default function NavbarTopBar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* TOP BAR */}
-      <div className="border-b border-black/10 bg-[#b7c772] text-slate-900">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
+<div className="border-b border-black/10 bg-[#b7c772] text-slate-900">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
 
-          {/* Redes */}
-          <div className="flex items-center justify-center gap-3 sm:justify-start group">
-            <span className="text-xs font-semibold opacity-0 transition group-hover:opacity-100">
-              Síguenos →
-            </span>
+    {/* Redes (SOLO ICONOS) */}
+    <div className="flex items-center gap-3">
+      {socialLinks.map(({ icon: Icon, href, label }) => (
+        <Link
+          key={label}
+          href={href}
+          aria-label={label}
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-white/40 transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-md"
+        >
+          <Icon className="h-4 w-4" />
+        </Link>
+      ))}
+    </div>
 
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                aria-label={label}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/40 transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-md"
-              >
-                <Icon className="h-4 w-4" />
-              </Link>
-            ))}
-          </div>
+    {/* Contacto */}
+    <div className="flex items-center gap-4 text-xs sm:text-sm flex-wrap justify-end">
 
-          {/* Contacto + ubicación */}
-          <div className="flex flex-col items-center gap-1 text-xs sm:flex-row sm:flex-wrap sm:justify-end sm:gap-x-4 sm:gap-y-1 sm:text-sm">
+      {/* Ubicación (solo desktop) */}
+      <span className="hidden items-center gap-2 opacity-80 md:flex">
+        <FaMapMarkerAlt /> Bucaramanga, Colombia
+      </span>
 
-            {/* Ubicación (solo desktop) */}
-            <span className="hidden items-center gap-2 opacity-80 transition hover:opacity-100 md:flex">
-              <FaMapMarkerAlt /> Bucaramanga, Colombia
-            </span>
+      {/* Email */}
+      <a
+        href="mailto:smartlearningacademia@gmail.com"
+        className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
+      >
+        <FaEnvelope className="shrink-0" />
+        <span>smartlearningacademia@gmail.com</span>
+      </a>
 
-            {/* Email */}
-            <a
-              href="mailto:smartlearningacademia@gmail.com"
-              className="flex items-center gap-2 transition hover:opacity-70"
-            >
-              <FaEnvelope className="shrink-0" />
-              <span className="truncate">
-                <span className="hidden sm:inline">
-                  smartlearningacademia@gmail.com
-                </span>
-                <span className="sm:hidden">Correo</span>
-              </span>
-            </a>
-
-            {/* Teléfono */}
-            <a
-              href="tel:+573212426083"
-              className="flex items-center gap-2 transition hover:opacity-70"
-            >
-              <FaPhoneAlt className="shrink-0" />
-              <span>
-                <span className="hidden sm:inline">+57 321 242 6083</span>
-                <span className="sm:hidden">Llamar</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
+      {/* Teléfono */}
+      <a
+        href="tel:+573212426083"
+        className="flex items-center gap-2 whitespace-nowrap transition hover:opacity-70"
+      >
+        <FaPhoneAlt className="shrink-0" />
+        <span>+57 321 242 6083</span>
+      </a>
+    </div>
+  </div>
+</div>
 
       {/* NAV */}
       <nav className="relative border-b border-black/10 bg-white">
