@@ -21,11 +21,11 @@ export default function OfertaPrincipalSection() {
 
     try {
       await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        "service_eg5vfbc",
+        "template_7vza6rm",
         formRef.current,
         {
-          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+          publicKey: "1KI_czEJsW29tX_Fc",
         }
       );
 
@@ -38,7 +38,6 @@ export default function OfertaPrincipalSection() {
       setSending(false);
     }
   };
-
   return (
     <section className="relative overflow-hidden" id="contacto">
       <div
