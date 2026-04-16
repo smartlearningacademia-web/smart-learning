@@ -52,6 +52,7 @@ export default function NavbarTopBar() {
       {/* TOP BAR */}
       <div className="border-b border-black/10 bg-[#b7c772] text-slate-900">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
+
           {/* Redes */}
           <div className="flex items-center justify-center gap-3 sm:justify-start group">
             <span className="text-xs font-semibold opacity-0 transition group-hover:opacity-100">
@@ -71,25 +72,37 @@ export default function NavbarTopBar() {
           </div>
 
           {/* Contacto + ubicación */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center text-xs sm:text-sm sm:justify-end md:text-sm">
+          <div className="flex flex-col items-center gap-1 text-xs sm:flex-row sm:flex-wrap sm:justify-end sm:gap-x-4 sm:gap-y-1 sm:text-sm">
+
+            {/* Ubicación (solo desktop) */}
             <span className="hidden items-center gap-2 opacity-80 transition hover:opacity-100 md:flex">
               <FaMapMarkerAlt /> Bucaramanga, Colombia
             </span>
 
+            {/* Email */}
             <a
-              href="mailto:contacto@tuempresa.com"
+              href="mailto:smartlearningacademia@gmail.com"
               className="flex items-center gap-2 transition hover:opacity-70"
             >
-              <FaEnvelope /> <span className="hidden sm:inline">smartlearningacademia@gmail.com</span>
-              <span className="sm:hidden">Correo</span>
+              <FaEnvelope className="shrink-0" />
+              <span className="truncate">
+                <span className="hidden sm:inline">
+                  smartlearningacademia@gmail.com
+                </span>
+                <span className="sm:hidden">Correo</span>
+              </span>
             </a>
 
+            {/* Teléfono */}
             <a
               href="tel:+573212426083"
               className="flex items-center gap-2 transition hover:opacity-70"
             >
-              <FaPhoneAlt /> <span className="hidden sm:inline">+57 321 242 6083</span>
-              <span className="sm:hidden">Llamar</span>
+              <FaPhoneAlt className="shrink-0" />
+              <span>
+                <span className="hidden sm:inline">+57 321 242 6083</span>
+                <span className="sm:hidden">Llamar</span>
+              </span>
             </a>
           </div>
         </div>
