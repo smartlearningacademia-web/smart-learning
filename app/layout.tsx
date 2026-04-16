@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smartlearningonline.com"),
+  metadataBase: new URL("https://www.smartlearningonline.com"),
 
   title: "Certificación de inglés rápida en Colombia | B1, B2, C1",
 
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://smartlearningonline.com",
+    canonical: "https://www.smartlearningonline.com",
   },
 
   icons: {
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "Certificación de inglés rápida en Colombia",
     description:
       "Obtén tu certificado de inglés rápido y válido. 100% online.",
-    images: ["https://www.smartlearningonline.com//Logo_img.png"],
+    images: ["https://www.smartlearningonline.com/Logo_img.png"],
   },
 };
 
@@ -93,8 +93,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "EducationalOrganization",
                 name: "Smart Learning",
-                url: "https://smartlearningcolombia.com",
-                logo: "https://smartlearningcolombia.com/Logo_img.png",
+                url: "https://www.smartlearningonline.com",
+                logo: "https://www.smartlearningonline.com/Logo_img.png",
                 description:
                   "Certificación de inglés rápida y válida en Colombia con acompañamiento.",
                 areaServed: "CO",
