@@ -61,7 +61,7 @@ export default function AboutSection() {
           </p>
 
           {/* NUEVO TEXTO DE AUTORIDAD */}
-          <p className="mt-4 text-gray-800">
+          <p className="mt-4 text-gray-600">
             Desde 2016 ayudando a estudiantes como tú a certificarse a tiempo. 
             Hoy, cientos de clientes satisfechos respaldan nuestro proceso.
           </p>
