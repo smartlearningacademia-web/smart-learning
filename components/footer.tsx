@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src="/logo.png"
+                src="/Logo_img.png" 
                 alt="Logo"
                 width={50}
                 height={50}
@@ -27,6 +27,7 @@ export default function Footer() {
 
             <p className="mt-4 text-sm leading-6 text-slate-600 max-w-sm">
               Soluciones educativas enfocadas en certificación de inglés y procesos académicos ágiles, diseñados para ayudarte a avanzar sin perder tiempo.
+              Atención 100% online en toda Colombia y el Exterior.
             </p>
 
             <div className="mt-6 space-y-3 text-sm text-slate-700">
